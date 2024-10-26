@@ -3,9 +3,11 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 
 export default function RegisterView() {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [error, setError] = useState("" as any);
   const { push } = useRouter();
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleSubmit = async (event: any) => {
     event.preventDefault();
     const data = {

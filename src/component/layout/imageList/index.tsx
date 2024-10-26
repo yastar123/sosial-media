@@ -4,7 +4,10 @@ import { collection, query, onSnapshot, deleteDoc, doc } from "firebase/firestor
 import { db }  from '../../../lib/firebase/init';
 import Image from "next/image";
 
+
+
 const ImageList = () => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const [images, setImages] = useState<any[]>([]);
 
     useEffect(() => {

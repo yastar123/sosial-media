@@ -36,6 +36,7 @@ export async function retrieveDataById(collectionName: string, id: string) {
 
 export async function signUp(
   userData: { e: string; email: string; password: string; role?: string },
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
   callback: Function
 ) {
   const q = query(
@@ -87,6 +88,7 @@ export async function signIn(userData: { email: string }) {
   }
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function signInWithGoogle(userData: any, callback: any) {
   const q = query(
     collection(firestore, "users"),

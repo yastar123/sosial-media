@@ -7,6 +7,7 @@ import { sign } from "crypto";
 export default function Login() {
   const [error, setError] = useState<string>("");
   const router = useRouter();
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const callbackUrl: any = router?.query.callbackUrl || '/home'; 
   console.log("callbackUrl: ", callbackUrl);
 
@@ -26,6 +27,7 @@ export default function Login() {
       } else {
         setError("Email or Password is incorrect");
       }
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       setError(error.message || "An error occurred");
     }
@@ -170,9 +172,9 @@ export default function Login() {
             </button>
             <div className="text-center tracking-widest  justify-center text-sm md:text-lg mt-4 flex ">
               not have an account?{" "}
-              <a href="/auth/register" className="text-foreground underline text-blue-600">
+              <Link href="/auth/register" className="text-foreground underline text-blue-600">
                 <p>Sign Up</p>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

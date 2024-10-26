@@ -1,6 +1,6 @@
 import { LampContainer } from "@/ui/lamp";
 import { motion } from "framer-motion";
-import { signOut, signIn, useSession } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 
 export default function Home() {
   const { data } = useSession();
@@ -11,9 +11,7 @@ export default function Home() {
   };
   console.log("user", user?.fullname);
   const handleClick = () => {
-    {
-      data ? signOut() : signIn();
-    }
+    signIn()
   };
 
   return (

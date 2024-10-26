@@ -23,6 +23,7 @@ const authOptions: NextAuthOptions = {
           email: string;
           password: string;
         };
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const user: any = await signIn({ email });
 
         if (user) {
@@ -47,6 +48,7 @@ const authOptions: NextAuthOptions = {
     }),
   ],
   callbacks: {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     async jwt({ token, account, profile, user }: any) {
       console.log("Account: ", account);
       console.log("Profile: ", profile);
@@ -66,6 +68,7 @@ const authOptions: NextAuthOptions = {
           role: "user",
         };
 
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         await signInWithGoogle(data, (result: any) => {
           if (result.status) {
             token.email = result.data.email;
@@ -79,6 +82,7 @@ const authOptions: NextAuthOptions = {
       return token;
     },
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     async session({ session, token }: any) {
       console.log("Token in session callback: ", token);
       if (token?.email) {
@@ -96,6 +100,7 @@ const authOptions: NextAuthOptions = {
       return session;
     },
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any
     async redirect({ url, baseUrl }: any) {
       return "/home";
     },

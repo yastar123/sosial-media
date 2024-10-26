@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function ExpandableText({ text, maxWords = 20 }) {
+export default function ExpandableText({ text = "", maxWords = 20 }) {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const words = text.split(" ");
