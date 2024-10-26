@@ -1,22 +1,11 @@
 import { LampContainer } from "@/ui/lamp";
 import { motion } from "framer-motion";
-import { signIn, useSession } from "next-auth/react";
+import Link from "next/link";
 
 export default function Home() {
-  const { data } = useSession();
-  const user = data?.user as {
-    email: string;
-    fullname: string;
-    image?: string | null;
-  };
-  console.log("user", user?.fullname);
-  const handleClick = () => {
-    signIn()
-  };
-
   return (
     <>
-      <LampContainer >
+      <LampContainer>
         <motion.h1
           initial={{ opacity: 0.5, y: 80 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -29,11 +18,8 @@ export default function Home() {
         >
           Selamat Datang <br /> di Aplikasi ini 🔥🔥
         </motion.h1>
-        <button
-          className="inline-flex h-12 md:h-16 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#00B6ED,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
-          onClick={handleClick}
-        >
-          Login
+        <button className="inline-flex h-12 md:h-16 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#00B6ED,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
+          <Link href="/home">Masuk</Link>
         </button>
       </LampContainer>
     </>
